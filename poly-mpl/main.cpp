@@ -51,7 +51,7 @@ constexpr int EvaluateHelper<
 
 template<int X, int ...Y>
 constexpr int Evaluate<X, Polynomial<Y...>> =
-    EvaluateHelper<X, Polynomial<Y...>, typename reverse_sequence<sizeof...(Y) - 1>::type>;
+    EvaluateHelper<X, Polynomial<Y...>, typename reverse_sequence<Degree<Polynomial<Y...>>>::type>;
 
 
 int main(void) {
